@@ -15,6 +15,10 @@ class String
   end
 
   def count_sentences
-    se
+    word_array = self.split.collect do |word|
+      word.tr_s('.','.').tr_s('!','!').tr_s('?','?')
+    end
+    sentence = word_array.join
+    sentence_count = sentence.count('.') + sentence.count('?') + sentence.count('!')
   end
 end
